@@ -11,7 +11,8 @@ This is a student management system built using * Django 4.0 * , * Amazon web se
 
 ## Installation(Local Host)
 
-From the **root** directory run:  	
+From the **root** directory run:
+
 ->	python -m venv venv
 ->	venv\scripts\activate
 ->	pip install -r requirements.txt
