@@ -7,9 +7,28 @@ This is a student management system built using * Django 4.0 * , * Amazon web se
 	1. Python 3.10.4
 	2. Pycharm
 
+## Setting Up AWS Server
+From AWS Console go to Lightsail Service
 
+	-> 	Launch a windows server
+	->	setup inbound and outbound rules for https and tcp connections over 8000 port
+	-> 	install python in the server
+	-> 	migrate your code into the server
 
-## Installation(Local Host)
+#setting up AWS Database (optional) 
+From AWS Console go to RDS service
+
+	-Launch an Postgresql Database instance and note down the username,master username and password of the instance ( it will be shown one time only so make sure to note them down very carefully)
+    -Wait for the database instance to be in running state ( Takes approximately 10 min)
+    -After Launched, click on the instance and it will show the details of your database
+    -Open Django project's Settings.py file, there you will see a section "DATABASE" IN LINE 85 
+          >>> Change name to the username to saved earlier
+          >>> Change Username to master username
+          >>> Change Password to new Password
+          >>> Change Host to new host which is shown exactly on aws console database instance page
+    -SAVE CHANGES
+
+## Installation
 
 From the **root** directory run:
 
@@ -21,12 +40,14 @@ From the **root** directory run:
 	->	python manage.py createsuperuser
 		(When prompted, enter a username, email, and password.)
 
-	->	python manage.py runserver
+	->	python manage.py runserver 0.0.0.0 (for local host) or 0.0.0.0:8000 (for global host)
 
 
 ## View the application
 
-Go to http://127.0.0.1:8000/ to view the application.
+Go to http://127.0.0.1:8000/ to view the application for local host <br>
+OR<br>
 
+Go to http://{Lightsail_IP}:8000/ to view the application for global host
 
 Thank You.
